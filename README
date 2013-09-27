@@ -1,0 +1,34 @@
+API for ByteCart bukkit plugin 
+
+to use it with maven, add this to your configuration file:
+
+	<repositories>
+		...
+		<repository>
+			<id>repobcapi-rel</id>
+			<name>bytecart.catageek.info API Releases</name>
+			<url>http://bytecart.catageek.info/mavenAPI/repositories/releases/</url>
+		</repository>
+		...
+	</repositories>
+	
+	<properties>
+		...
+		<bytecartapi.version>put the version number here</bytecartapi.version>
+		...
+	</properties>
+	
+	<dependencies>
+		...
+		<dependency>
+			<groupId>com.github.catageek</groupId>
+			<artifactId>ByteCartAPI</artifactId>
+			<version>${bytecartapi.version}</version>
+		</dependency>
+		...
+	</dependencies>
+
+
+Credits
+=================================
+Developped by Catageek (catageek@free.fr)

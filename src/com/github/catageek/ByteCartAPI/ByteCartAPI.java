@@ -1,0 +1,44 @@
+package com.github.catageek.ByteCartAPI;
+
+import com.github.catageek.ByteCartAPI.AddressLayer.Resolver;
+
+
+public final class ByteCartAPI {
+
+	private static ByteCartPlugin plugin;
+
+	/**
+	 * @return the plugin
+	 */
+	public static ByteCartPlugin getPlugin() {
+		return plugin;
+	}
+
+	/**
+	 * @param plugin the plugin to set
+	 */
+	public static void setPlugin(ByteCartPlugin plugin) {
+		if (ByteCartAPI.plugin != null && plugin != null) {
+			throw new UnsupportedOperationException("Cannot redefine singleton Plugin");
+		}
+
+		ByteCartAPI.plugin = plugin;
+	}
+
+	/**
+	 * @return the resolver registered
+	 */
+	public static Resolver getResolver() {
+		return plugin.getResolver();
+	}
+
+	/**
+	 * Set the resolver that will be used
+	 * 
+	 * @param resolver the resolver provided
+	 */
+	public static void setResolver(Resolver resolver) {
+		plugin.setResolver(resolver);
+	}
+
+}
