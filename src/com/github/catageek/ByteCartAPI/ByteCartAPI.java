@@ -1,5 +1,7 @@
 package com.github.catageek.ByteCartAPI;
 
+import java.util.logging.Logger;
+
 import com.github.catageek.ByteCartAPI.AddressLayer.Resolver;
 
 
@@ -39,6 +41,15 @@ public final class ByteCartAPI {
 	 */
 	public static void setResolver(Resolver resolver) {
 		plugin.setResolver(resolver);
+	}
+
+	/**
+	 * Get the logger
+	 * 
+	 * @return the logger
+	 */
+	public static Logger getLogger() {
+		return plugin.getLog();
 	}
 
 }
