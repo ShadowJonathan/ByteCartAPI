@@ -36,6 +36,9 @@ public interface Updater {
 		BACKBONE("backbone", 0, Scope.BACKBONE, "rip"),
 		REGION("region", 1, Scope.REGION, "rip"),
 		LOCAL("local", 2, Scope.LOCAL, "conf"),
+		OTHER_BACKBONE("other_backbone", 3, Scope.BACKBONE, "other"),
+		OTHER_REGION("other_region", 4, Scope.REGION, "other"),
+		OTHER_LOCAL("other_local", 5, Scope.LOCAL, "other"),
 		RESET_BACKBONE("reset_backbone", 8, Scope.BACKBONE, "reset"),
 		RESET_REGION("reset_region", 9, Scope.REGION, "reset"),
 		RESET_LOCAL("reset_local", 10, Scope.LOCAL, "reset");
