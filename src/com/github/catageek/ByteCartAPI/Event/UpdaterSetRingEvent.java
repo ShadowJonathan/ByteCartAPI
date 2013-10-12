@@ -1,7 +1,8 @@
 package com.github.catageek.ByteCartAPI.Event;
 
 import org.bukkit.event.HandlerList;
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when a region updater modifies the address
@@ -27,7 +28,7 @@ public class UpdaterSetRingEvent extends UpdaterClearRingEvent {
 	 * @param old The old value of the ring
 	 * @param newring The new value of the ring
 	 */
-	public UpdaterSetRingEvent(Updater updater, int old, int newring) {
+	public UpdaterSetRingEvent(Wanderer updater, int old, int newring) {
 		super(updater, old);
 		this.newring = newring;
 	}

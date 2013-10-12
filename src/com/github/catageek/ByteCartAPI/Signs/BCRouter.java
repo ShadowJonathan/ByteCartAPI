@@ -15,4 +15,6 @@ public interface BCRouter extends BCSign {
 	 * @return the track number
 	 */
 	public int getOriginTrack();
+
+	public com.github.catageek.ByteCartAPI.Wanderer.RoutingTable getRoutingTable();
 }

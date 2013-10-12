@@ -4,8 +4,8 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
 import com.github.catageek.ByteCartAPI.HAL.IC;
-import com.github.catageek.ByteCartAPI.Routing.Updater.Level;
 import com.github.catageek.ByteCartAPI.Signs.BCSign;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer.Level;
 
 
 /**
@@ -29,7 +29,7 @@ public abstract class BCRoutableSignEvent extends BCEvent {
 	 *  - REGION for a BC8010 router
 	 *  - BACKBONE for a BC8020 router
 	 *
-	 * @return One value from Routing.Updater.Level enum
+	 * @return One value from Routing.Wanderer.Level enum
 	 */
 	public final Level getLevel() {
 		return getSign().getLevel();

@@ -3,7 +3,7 @@ package com.github.catageek.ByteCartAPI.Event;
 import org.bukkit.event.HandlerList;
 
 import com.github.catageek.ByteCartAPI.AddressLayer.Address;
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when a region reset updater clears the address
@@ -19,7 +19,7 @@ public class UpdaterClearSubnetEvent extends UpdaterClearStationEvent {
 	 * @param oldAddress The old address of the subnet
 	 * @param length number of stations this subnet can contain
 	 */
-	public UpdaterClearSubnetEvent(Updater updater, Address oldAddress, int length) {
+	public UpdaterClearSubnetEvent(Wanderer updater, Address oldAddress, int length) {
 		super(updater, oldAddress);
 		this.length = length;
 	}

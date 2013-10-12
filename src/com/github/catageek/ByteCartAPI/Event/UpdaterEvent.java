@@ -1,8 +1,8 @@
 package com.github.catageek.ByteCartAPI.Event;
 
 import com.github.catageek.ByteCartAPI.HAL.IC;
-import com.github.catageek.ByteCartAPI.Routing.Updater;
-import com.github.catageek.ByteCartAPI.Routing.Updater.Level;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer.Level;
 
 /**
  * An event concerning an updater.
@@ -10,14 +10,14 @@ import com.github.catageek.ByteCartAPI.Routing.Updater.Level;
  */
 abstract public class UpdaterEvent extends BCEvent {
 	
-	private final Updater updater;
+	private final Wanderer updater;
 	
 	/**
 	 * Default constructor
 	 * 
 	 * @param updater involved in the event
 	 */
-	UpdaterEvent(Updater updater) {
+	UpdaterEvent(Wanderer updater) {
 		super(updater.getBcSign());
 		this.updater = updater;
 	}
@@ -65,7 +65,7 @@ abstract public class UpdaterEvent extends BCEvent {
 	/**
 	 * @return The updater involved
 	 */
-	protected final Updater getUpdater() {
+	protected final Wanderer getUpdater() {
 		return updater;
 	}
 }

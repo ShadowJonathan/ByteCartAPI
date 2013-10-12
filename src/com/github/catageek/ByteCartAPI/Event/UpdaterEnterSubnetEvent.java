@@ -3,7 +3,7 @@ package com.github.catageek.ByteCartAPI.Event;
 import org.bukkit.event.HandlerList;
 
 import com.github.catageek.ByteCartAPI.AddressLayer.Address;
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when a local updater enters a subnet
@@ -22,7 +22,7 @@ public class UpdaterEnterSubnetEvent extends UpdaterEvent {
 	 * @param oldlength number of stations the subnet we are nested in can contain
 	 * @param oldaddress address of the subnet we are nested in
 	 */
-	public UpdaterEnterSubnetEvent(Updater updater, Address address, int length, Address oldaddress, int oldlength) {
+	public UpdaterEnterSubnetEvent(Wanderer updater, Address address, int length, Address oldaddress, int oldlength) {
 		super(updater);
 		this.address = address;
 		this.length = length;

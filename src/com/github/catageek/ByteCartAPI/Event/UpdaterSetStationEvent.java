@@ -3,7 +3,7 @@ package com.github.catageek.ByteCartAPI.Event;
 import org.bukkit.event.HandlerList;
 
 import com.github.catageek.ByteCartAPI.AddressLayer.Address;
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when a local updater modifies the address
@@ -19,7 +19,7 @@ public class UpdaterSetStationEvent extends UpdaterClearStationEvent {
 	 * @param oldAddress The old address of the station
 	 * @param newAddress The new address of the station
 	 */
-	public UpdaterSetStationEvent(Updater updater, Address oldAddress, Address newAddress) {
+	public UpdaterSetStationEvent(Wanderer updater, Address oldAddress, Address newAddress) {
 		super(updater, oldAddress);
 		this.newAddress = newAddress;
 	}

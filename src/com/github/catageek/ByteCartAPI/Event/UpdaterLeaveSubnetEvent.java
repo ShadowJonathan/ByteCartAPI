@@ -3,7 +3,7 @@ package com.github.catageek.ByteCartAPI.Event;
 import org.bukkit.event.HandlerList;
 
 import com.github.catageek.ByteCartAPI.AddressLayer.Address;
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when a local updater leaves a subnet
@@ -21,7 +21,7 @@ public class UpdaterLeaveSubnetEvent extends UpdaterEvent {
 	 * @param newlength number of stations of the subnet we are re-entering
 	 * @param newaddress address of the subnet we are re-entering
 	 */
-	public UpdaterLeaveSubnetEvent(Updater updater, Address address, int length, Address newaddress, int newlength) {
+	public UpdaterLeaveSubnetEvent(Wanderer updater, Address address, int length, Address newaddress, int newlength) {
 		super(updater);
 		this.address = address;
 		this.length = length;

@@ -3,7 +3,7 @@ package com.github.catageek.ByteCartAPI.Event;
 import org.bukkit.event.HandlerList;
 
 import com.github.catageek.ByteCartAPI.AddressLayer.Address;
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when an local updater pass a station sign.
@@ -18,7 +18,7 @@ public class UpdaterPassStationEvent extends UpdaterEvent {
 	 * @param updater The updater involved
 	 * @param address The address of the station
 	 */
-	public UpdaterPassStationEvent(Updater updater, Address address) {
+	public UpdaterPassStationEvent(Wanderer updater, Address address) {
 		super(updater);
 		this.address = address;
 	}

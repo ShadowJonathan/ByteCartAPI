@@ -4,7 +4,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.event.HandlerList;
 
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when an updater pass a router of the same level.
@@ -21,7 +21,7 @@ public class UpdaterPassRouterEvent extends UpdaterEvent {
 	 * @param to The face from where the updater will leave the router 
 	 * @param nextring The ring number of the track attached to the router where it is going
 	 */
-	public UpdaterPassRouterEvent(Updater updater, BlockFace to, int nextring) {
+	public UpdaterPassRouterEvent(Wanderer updater, BlockFace to, int nextring) {
 		super(updater);
 		this.to = to;
 		this.nextring = nextring;

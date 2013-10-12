@@ -3,7 +3,7 @@ package com.github.catageek.ByteCartAPI.Event;
 import org.bukkit.block.BlockFace;
 import org.bukkit.event.HandlerList;
 
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when a region reset updater clears the address
@@ -28,7 +28,7 @@ public class UpdaterClearRingEvent extends UpdaterEvent {
 	 * @param updater The updater involved
 	 * @param old The old value of the ring
 	 */
-	public UpdaterClearRingEvent(Updater updater, int old) {
+	public UpdaterClearRingEvent(Wanderer updater, int old) {
 		super(updater);
 		this.old = old;
 	}

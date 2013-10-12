@@ -1,4 +1,4 @@
-package com.github.catageek.ByteCartAPI.Routing;
+package com.github.catageek.ByteCartAPI.Wanderer;
 
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -11,7 +11,7 @@ import com.github.catageek.ByteCartAPI.Util.DirectionRegistry;
 /**
  * Represents an updater
  */
-public interface Updater {
+public interface Wanderer {
 
 	/**
 	 * The scope of the updater

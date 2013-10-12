@@ -5,7 +5,7 @@ import org.bukkit.entity.Vehicle;
 
 import com.github.catageek.ByteCartAPI.AddressLayer.Address;
 import com.github.catageek.ByteCartAPI.HAL.IC;
-import com.github.catageek.ByteCartAPI.Routing.Updater.Level;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer.Level;
 
 /**
  * A network sign should implement this

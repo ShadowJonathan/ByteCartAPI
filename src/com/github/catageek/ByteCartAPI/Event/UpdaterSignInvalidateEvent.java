@@ -1,14 +1,15 @@
 package com.github.catageek.ByteCartAPI.Event;
 
 import org.bukkit.event.HandlerList;
-import com.github.catageek.ByteCartAPI.Routing.Updater;
+
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer;
 
 /**
  * Event triggered when a sign is invalidated by an updater
  */
 public final class UpdaterSignInvalidateEvent extends UpdaterEvent {
 
-	public UpdaterSignInvalidateEvent(Updater updater) {
+	public UpdaterSignInvalidateEvent(Wanderer updater) {
 		super(updater);
 	}
 
