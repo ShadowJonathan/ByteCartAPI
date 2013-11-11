@@ -67,7 +67,7 @@ public abstract class AbstractWanderer {
 
 		if (bc instanceof BCRouter) {
 			BCRouter ic = (BCRouter) bc;
-			From = new DirectionRegistry(ic.getOriginTrack());
+			From = new DirectionRegistry(ic.getFrom());
 		}
 		else {
 			From = null;
