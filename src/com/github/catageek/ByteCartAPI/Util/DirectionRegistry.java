@@ -1,6 +1,6 @@
 package com.github.catageek.ByteCartAPI.Util;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.bukkit.block.BlockFace;
 
 import com.github.catageek.ByteCartAPI.HAL.Registry;

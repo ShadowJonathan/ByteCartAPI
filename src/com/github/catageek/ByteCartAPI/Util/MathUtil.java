@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -13,8 +14,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Minecart;
 import org.bukkit.entity.Vehicle;
 import org.bukkit.util.Vector;
-
-import com.github.catageek.ByteCartAPI.ByteCartAPI;
 
 
 public final class MathUtil {
@@ -74,20 +73,14 @@ public final class MathUtil {
 		case WEST_SOUTH_WEST:
 			return BlockFace.WEST;
 		default:
-			ByteCartAPI.getLogger().severe("ByteCart: Tilted sign found. Please straight it up in the axis of the track");
-			break;
+			return BlockFace.UP;
 		}
-		return b;
 	}
 
 	public static final void forceUpdate(Block b) {
-		byte oldData = b.getData();
-		byte notData;
-		if (oldData>1) notData = (byte)(oldData-1);
-		else if (oldData<15) notData = (byte)(oldData+1);
-		else notData = 0;
-		b.setData(notData, true);
-		b.setData(oldData, true);
+		Material oldData = b.getType();
+		b.setType(Material.BEDROCK);
+		b.setType(oldData);
 	}
 
 	public static final void loadChunkAround(World world, int x, int z, int radius) {
