@@ -59,7 +59,7 @@ public interface Address {
 	public boolean setAddress(String s, String name);
 
 	/**
-	 * Set an address
+	 * Set an unresolved address
 	 *
 	 * <p>{@link Address#finalizeAddress()} should be called later to actually set the address</p>
 	 *
@@ -68,17 +68,6 @@ public interface Address {
 	 */
 	public boolean setAddress(String s);
 
-	/**
-	 * Set an address with a name
-	 *
-	 * <p>{@link Address#finalizeAddress()} should be called later to actually set the address</p>
-	 *
-	 * @param a the address to set
-	 * @param name the name to associate to this address
-	 * @return true if the address was set
-	 */
-	public boolean setAddress(Address a, String name);
-	
 	/**
 	 * Set the train flag
 	 *

@@ -20,7 +20,7 @@ public class UpdaterClearSubnetEvent extends UpdaterClearStationEvent {
 	 * @param length number of stations this subnet can contain
 	 */
 	public UpdaterClearSubnetEvent(Wanderer updater, Address oldAddress, int length) {
-		super(updater, oldAddress);
+		super(updater, oldAddress, "");
 		this.length = length;
 	}
 

@@ -18,9 +18,10 @@ public class UpdaterSetStationEvent extends UpdaterClearStationEvent {
 	 * @param updater The updater involved
 	 * @param oldAddress The old address of the station
 	 * @param newAddress The new address of the station
+	 * @param name The name of the station
 	 */
-	public UpdaterSetStationEvent(Wanderer updater, Address oldAddress, Address newAddress) {
-		super(updater, oldAddress);
+	public UpdaterSetStationEvent(Wanderer updater, Address oldAddress, Address newAddress, String name) {
+		super(updater, oldAddress, name);
 		this.newAddress = newAddress;
 	}
 
