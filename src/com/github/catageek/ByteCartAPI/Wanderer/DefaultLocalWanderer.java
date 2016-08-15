@@ -11,7 +11,6 @@ import com.github.catageek.ByteCartAPI.CollisionManagement.IntersectionSide.Side
 import com.github.catageek.ByteCartAPI.Signs.BCRouter;
 import com.github.catageek.ByteCartAPI.Signs.BCSign;
 import com.github.catageek.ByteCartAPI.Signs.HasNetmask;
-import com.github.catageek.ByteCartAPI.Util.DirectionRegistry;
 
 public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWanderer {
 
@@ -83,9 +82,9 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 		if (this.getSignAddress().isValid()
 				&& this.getSignAddress().getRegion().getAmount() != getWandererRegion()) {
 			// case this is not the right region
-			DirectionRegistry dir = RoutingTable.getDirection(getWandererRegion());
+			BlockFace dir = RoutingTable.getDirection(getWandererRegion());
 			if (dir != null)
-				return dir.getBlockFace();
+				return dir;
 			return this.getFrom().getBlockFace();
 		}
 
@@ -94,14 +93,16 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 			int signring = this.getSignAddress().getTrack().getAmount();
 			int preferredroute = this.getStart().peek();
 
+			BlockFace dir = null;
 			// if we are not arrived yet or in ring 0, we continue
-			if (signring == 0 || signring != preferredroute)
-				try {
-					return RoutingTable.getDirection(preferredroute).getBlockFace();
-				} catch (NullPointerException e) {
-					// no route to ring
-					return AbstractWanderer.getRandomBlockFace(RoutingTable, getFrom().getBlockFace());
+			if (signring == 0 || signring != preferredroute) {
+				dir = RoutingTable.getDirection(preferredroute);
+				if (dir != null) {
+					return dir;
 				}
+				// no route to ring
+				return AbstractWanderer.getRandomBlockFace(RoutingTable, getFrom().getBlockFace());
+			}
 		}
 		else {
 			// no cookie
@@ -123,9 +124,9 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 
 				// the route where we went the lesser
 				int preferredroute = this.getContent().getMinDistanceRing(RoutingTable, getFrom());
-				DirectionRegistry dir;
+				BlockFace dir;
 				if ((dir = RoutingTable.getDirection(preferredroute)) != null)
-					return dir.getBlockFace();
+					return dir;
 				return AbstractWanderer.getRandomBlockFace(RoutingTable, getFrom().getBlockFace());
 			}
 		}

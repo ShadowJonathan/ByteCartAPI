@@ -5,16 +5,39 @@ import java.util.Set;
 
 import org.bukkit.block.BlockFace;
 
-import com.github.catageek.ByteCartAPI.Util.DirectionRegistry;
-
 public interface RoutingTable {
 	/**
 	 * Return the best direction matching the entry
 	 * 
 	 * @param entry the track number
-	 * @return the direction
+	 * @return the direction or null
 	 */
-	public DirectionRegistry getDirection(int entry);
+	public BlockFace getDirection(int entry);
+
+	/**
+	 * Return the best direction matching the entry whose interface is not closed
+	 * 
+	 * @param entry the track number
+	 * @return the direction or null
+	 */
+	public BlockFace getAllowedDirection(int entry);
+
+	/**
+	 * Tells if an interface is allowed or not
+	 * 
+	 * @param direction the interface to test
+	 * @return true if allowed, false otherwise
+	 */
+	public Boolean isAllowedDirection(BlockFace direction);
+
+	/**
+	 * Enable or disable an interface
+	 * 
+	 * @param direction the interface to enable or disable
+	 * @param enable true to enable, false to disable
+	 */
+	public void allowDirection(BlockFace direction, Boolean enable);
+
 	/**
 	 * Get the metric associated with this entry and this direction
 	 * 
@@ -22,7 +45,7 @@ public interface RoutingTable {
 	 * @param direction the direction
 	 * @return the metric
 	 */
-	public int getMetric(int entry, DirectionRegistry direction);
+	public int getMetric(int entry, BlockFace direction);
 
 	/**
 	 * Get the minimum metric for a specific entry
@@ -47,7 +70,7 @@ public interface RoutingTable {
 	 * @param direction the direction
 	 * @return true if the track is directly connected at this direction
 	 */
-	public boolean isDirectlyConnected(int ring, DirectionRegistry direction);
+	public boolean isDirectlyConnected(int ring, BlockFace direction);
 	
 	/**
 	 * Get the track number at the specific direction
@@ -55,7 +78,7 @@ public interface RoutingTable {
 	 * @param direction the direction
 	 * @return the track number
 	 */
-	public int getDirectlyConnected(DirectionRegistry direction);
+	public int getDirectlyConnected(BlockFace direction);
 	
 	/**
 	 * Get a direction that has not been configured, or null if all directions are configured
@@ -77,7 +100,7 @@ public interface RoutingTable {
 	 * @param from the direction
 	 * @return a list of track numbers
 	 */
-	public Set<Integer> getDirectlyConnectedList(DirectionRegistry from);
+	public Set<Integer> getDirectlyConnectedList(BlockFace from);
 
 	/**
 	 * Return an iterator of Route in incrementing order
@@ -85,6 +108,6 @@ public interface RoutingTable {
 	 *
 	 * @return the set
 	 */
-	public <T extends RouteValue> Iterator<T> getOrderedRouteNumbers();
+	public Iterator<Integer> getOrderedRouteNumbers();
 	
 }

@@ -183,7 +183,7 @@ public abstract class AbstractWanderer {
 		// selecting a random destination avoiding ring 0 or where we come from
 		DirectionRegistry direction = new DirectionRegistry(1 << (new Random()).nextInt(4));
 
-		while (direction.getBlockFace() == from || routingTable.isDirectlyConnected(0, direction)) {
+		while (direction.getBlockFace() == from || routingTable.isDirectlyConnected(0, direction.getBlockFace())) {
 			direction.setAmount(1 << (new Random()).nextInt(4));
 		}
 
