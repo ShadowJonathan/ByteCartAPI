@@ -15,21 +15,25 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
 	</repositories>
 	<distributionManagement>
 		<site>
 			<id>website</id>
-			<url>ftp://bytecart.catageek.info/bytecart/mavenAPI/</url>
+			<url>ftp://catageek.free.fr/bytecart/maven/</url>
 		</site>
 		<repository>
 			<id>repobcapi-rel</id>
 			<name>bytecart.catageek.info API Releases</name>
-			<url>ftp://bytecart.catageek.info/bytecart/mavenAPI/repositories/releases/</url>
+			<url>ftp://catageek.free.fr/bytecart/maven/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>repobcapi-snap</id>
 			<name>bytecart.catageek.info API Snapshots</name>
-			<url>ftp://bytecart.catageek.info/bytecart/mavenAPI/repositories/snapshots/</url>
+			<url>ftp://catageek.free.fr/bytecart/maven/repositories/snapshots/</url>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 	</distributionManagement>
