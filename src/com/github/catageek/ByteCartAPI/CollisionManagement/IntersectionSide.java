@@ -7,7 +7,7 @@ public interface IntersectionSide {
 	 * Position of the T cross-roads.
 	 */
 	public enum Side {
-		LEVER_ON (3),
+		LEVER_ON (7),
 		LEVER_OFF (0);
 
 		private int Value;
