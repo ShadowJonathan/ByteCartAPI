@@ -4,6 +4,9 @@ import java.io.IOException;
 
 import org.bukkit.inventory.Inventory;
 
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer.Level;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer.Scope;
+
 public interface WandererManager {
 	/**
 	 * Register a wanderer factory
@@ -22,15 +25,6 @@ public interface WandererManager {
 	public void unregister(String name);
 	
 	/**
-	 * Create a wanderer
-	 * 
-	 * @param ivc the content of the wanderer
-	 * @param name the name of the type of wanderer previously registered
-	 * @param type a suffix to add to book title
-	 */
-	public boolean create(InventoryContent ivc, String name, String type);
-
-	/**
 	 * Get a wanderer factory
 	 * 
 	 * @param bc the sign that request the wanderer
@@ -41,5 +35,28 @@ public interface WandererManager {
 	 */
 	public WandererFactory getFactory(Inventory inv) throws ClassNotFoundException, IOException;
 	
-	public void saveContent(InventoryContent rte) throws ClassNotFoundException, IOException;
+	/**
+	 * Create a wanderer
+	 * 
+	 * @param ivc the content of the wanderer
+	 * @param name the name of the type of wanderer previously registered
+	 * @param type a suffix to add to book title
+	 */
+	public void saveContent(InventoryContent rte, String type, Level level) throws ClassNotFoundException, IOException;
+
+	public InventoryContent getWandererContent(Inventory inv) throws IOException, ClassNotFoundException;
+
+	/**
+	 * Tells if this type is registered as a wanderer type
+	 * 
+	 * @param type the type to test
+	 * @return true if the type is registered
+	 */
+	boolean isRegistered(String type);
+
+	boolean isWanderer(Inventory inv, Scope scope);
+
+	boolean isWanderer(Inventory inv, Level level, String type);
+
+	boolean isWanderer(Inventory inv, String type);
 }

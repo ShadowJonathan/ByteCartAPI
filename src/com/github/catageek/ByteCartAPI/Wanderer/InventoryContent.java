@@ -54,4 +54,10 @@ public interface InventoryContent extends Serializable {
 
 	public void setRoute(int ring, int i);
 
+	public long getCreationtime();
+
+	public long getExpirationTime();
+
+	void setExpirationTime(long lastupdate);
+
 }

@@ -11,6 +11,7 @@ import com.github.catageek.ByteCartAPI.CollisionManagement.IntersectionSide.Side
 import com.github.catageek.ByteCartAPI.Signs.BCRouter;
 import com.github.catageek.ByteCartAPI.Signs.BCSign;
 import com.github.catageek.ByteCartAPI.Signs.HasNetmask;
+import com.github.catageek.ByteCartAPI.Wanderer.Wanderer.Level;
 
 public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWanderer {
 
@@ -20,6 +21,8 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 	private final T content;
 	private final Counter Counter;
 	protected com.github.catageek.ByteCartAPI.Wanderer.RoutingTable RoutingTable = null;
+	private final String name;
+	private final Level level;
 
 	protected enum counterSlot {
 		REGION(16),
@@ -32,9 +35,11 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 		}
 	}
 
-	protected DefaultLocalWanderer(BCSign bc, T rte) {
+	protected DefaultLocalWanderer(BCSign bc, T rte, String name, Level level) {
 		super(bc, rte.getRegion());
 		content = rte;
+		this.name = name;
+		this.level = level;
 		Counter = content.getCounter();
 
 		Start = content.getStart();
@@ -275,8 +280,9 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 	}
 
 	public void save() {
+		T rte = this.getContent();
 		try {
-			ByteCartAPI.getPlugin().getWandererManager().saveContent(getContent());
+			ByteCartAPI.getPlugin().getWandererManager().saveContent(rte, this.name, this.level);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
