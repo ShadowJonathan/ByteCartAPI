@@ -110,13 +110,13 @@ public interface RoutingTable {
 	 */
 	public Iterator<Integer> getOrderedRouteNumbers();
 	
-	
+
 	/**
 	 * Get a set of track numbers that are seen in a direction, but not directly connected
-	 * 
+	 *
 	 * @param direction the direction
 	 * @return a set of track numbers
 	 */
 	Set<Integer> getNotDirectlyConnectedList(BlockFace direction);
-	
+
 }

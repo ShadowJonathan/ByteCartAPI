@@ -25,8 +25,8 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 	private final Level level;
 
 	protected enum counterSlot {
-		REGION(16),
-		RING(17);
+		REGION(ByteCartAPI.MAXSTATION),
+		RING(ByteCartAPI.MAXSTATION + 1);
 
 		public final int slot;
 
@@ -72,7 +72,7 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 		// turn if it's not a station, and the ring is initialized or the address is invalid
 		// and the subnet is contained in the current borders
 		// and we are in the region
-		if (this.getNetmask() < 8
+		if (this.getNetmask() < ByteCartAPI.MAXSTATIONLOG
 				&& (! (this.getStart().empty() ^ this.getEnd().empty()))
 				&& ! this.isExactSubnet(this.getFirstStationNumber(), this.getNetmask())
 				&& this.getWandererRegion() == this.getCounter().getCount(counterSlot.REGION.slot))
@@ -112,7 +112,7 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 		else {
 			// no cookie
 			// check counter
-			if (this.getCounter().isAllFull(0, 15)) {
+			if (this.getCounter().isAllFull(0, ByteCartAPI.MAXSTATION - 1)) {
 				// we configured all stations
 				// incrementing ring counter in the RoutingTableExchange map
 				int ring = this.getCounter().getCount(counterSlot.RING.slot);
@@ -194,7 +194,7 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 			return;
 
 		// we did not enter the subnet
-		if(to.Value() != Side.LEVER_ON.Value() && this.getNetmask() < 8) {
+		if(to.Value() != Side.LEVER_ON.Value() && this.getNetmask() < ByteCartAPI.MAXSTATIONLOG) {
 			// if we have the same sign as when entering the subnet, close the subnet
 			if (this.isExactSubnet(this.getFirstStationNumber(), this.getNetmask())) {
 				this.leaveSubnet();
@@ -203,7 +203,7 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 			return;
 		}
 
-		int length = (256 >> this.getNetmask());
+		int length = ((ByteCartAPI.MAXSTATION) >> this.getNetmask());
 
 		int stationfield = -1;
 		if (getSignAddress().isValid())
@@ -258,7 +258,7 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 	}
 
 	protected final boolean isExactSubnet(int address, int netmask) {
-		return (address == this.getFirstStationNumber() && (address | (255 >> netmask))  == (this.getLastStationNumber() - 1));
+		return (address == this.getFirstStationNumber() && (address | ((ByteCartAPI.MAXSTATION - 1) >> netmask))  == (this.getLastStationNumber() - 1));
 	}
 
 	/**
@@ -268,7 +268,7 @@ public class DefaultLocalWanderer<T extends InventoryContent> extends AbstractWa
 	 * @return the last station number
 	 */
 	protected int getLastStationNumber() {
-		return (this.getEnd().empty()) ? 256 : this.getEnd().peek();
+		return (this.getEnd().empty()) ? ByteCartAPI.MAXSTATION : this.getEnd().peek();
 	}
 
 	protected void incrementRingCounter(int ring) {

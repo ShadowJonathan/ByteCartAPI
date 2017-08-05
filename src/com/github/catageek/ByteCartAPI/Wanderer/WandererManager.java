@@ -37,7 +37,7 @@ public interface WandererManager {
 	
 	/**
 	 * Create a wanderer
-	 * 
+	 *
 	 * @param ivc the content of the wanderer
 	 * @param name the name of the type of wanderer previously registered
 	 * @param type a suffix to add to book title
@@ -48,7 +48,7 @@ public interface WandererManager {
 
 	/**
 	 * Tells if this type is registered as a wanderer type
-	 * 
+	 *
 	 * @param type the type to test
 	 * @return true if the type is registered
 	 */

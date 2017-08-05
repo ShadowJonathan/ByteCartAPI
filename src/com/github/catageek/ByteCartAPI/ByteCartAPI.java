@@ -8,6 +8,10 @@ import com.github.catageek.ByteCartAPI.AddressLayer.Resolver;
 public final class ByteCartAPI {
 
 	private static ByteCartPlugin plugin;
+	public static final int MAXSTATION = 256;
+	public static final int MAXSTATIONLOG = 8;
+	public static final int MAXRING = 2048;
+	public static final int MAXRINGLOG = 11;
 
 	/**
 	 * @return the plugin
