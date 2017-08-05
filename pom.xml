@@ -63,7 +63,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-shade-plugin</artifactId>
-					<version>2.1</version>
+					<version>3.0.0</version>
 					<configuration>
 						<artifactSet>
 							<excludes>
@@ -99,7 +99,7 @@
 		</extensions>
 	</build>
 	<properties>
-		<bukkit.version>1.11.2-R0.1-SNAPSHOT</bukkit.version>
+		<bukkit.version>1.12.1-R0.1-SNAPSHOT</bukkit.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -113,5 +113,5 @@
 			<version>3.3.2</version>
 		</dependency>
 	</dependencies>
-	<version>3.1.2-SNAPSHOT</version>
+	<version>3.1.2</version>
 </project>
