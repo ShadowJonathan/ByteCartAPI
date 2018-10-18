@@ -10,11 +10,11 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.Rail;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Minecart;
 import org.bukkit.entity.Vehicle;
 import org.bukkit.util.Vector;
-
 
 public final class MathUtil {
 
@@ -105,8 +105,7 @@ public final class MathUtil {
 	 * @throws ClassNotFoundException
 	 * @throws IOException
 	 */
-	public static org.bukkit.entity.Vehicle getVehicleByLocation(Location loc)
-			throws ClassNotFoundException, IOException {
+	public static org.bukkit.entity.Vehicle getVehicleByLocation(Location loc) {
 		List<Entity> ent = Arrays.asList(loc.getBlock().getChunk().getEntities());
 		for (ListIterator<Entity> it = ent.listIterator(); it.hasNext();) {
 			if (it.next() instanceof Minecart) {
@@ -153,7 +152,18 @@ public final class MathUtil {
 		} else if (velocity.getZ() < 0) {
 			velocity.setZ(-speed);
 		}
-
 		minecart.setVelocity(velocity);
+	}
+
+	public static Boolean isOnSlope(final Rail rail) {
+		switch(rail.getShape()) {
+		case ASCENDING_EAST:
+		case ASCENDING_WEST:
+		case ASCENDING_SOUTH:
+		case ASCENDING_NORTH:
+			return true;
+		default:
+			return false;
+		}
 	}
 }

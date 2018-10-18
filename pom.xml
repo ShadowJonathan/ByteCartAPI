@@ -99,7 +99,7 @@
 		</extensions>
 	</build>
 	<properties>
-		<bukkit.version>1.12.1-R0.1-SNAPSHOT</bukkit.version>
+		<bukkit.version>1.13.1-R0.1-SNAPSHOT</bukkit.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -113,5 +113,5 @@
 			<version>3.3.2</version>
 		</dependency>
 	</dependencies>
-	<version>3.1.2</version>
+	<version>3.2.1-SNAPSHOT</version>
 </project>

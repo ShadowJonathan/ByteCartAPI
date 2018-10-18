@@ -15,7 +15,7 @@ public interface WandererFactory {
 	 * @throws IOException 
 	 * @throws ClassNotFoundException 
 	 */
-	Wanderer getWanderer(BCSign bc, Inventory inv) throws ClassNotFoundException, IOException;
+	Wanderer getWanderer(BCSign bc, Inventory inv);
 
 	void removeAllWanderers();
 
