@@ -113,5 +113,5 @@
 			<version>3.3.2</version>
 		</dependency>
 	</dependencies>
-	<version>3.2.1-SNAPSHOT</version>
+	<version>3.2.1</version>
 </project>
